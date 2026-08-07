@@ -4,7 +4,7 @@
 This is a very basic deep learning project to learn CNN and ANN using PyTorch, as well as to learn git and understand the professional workflow while working on any project.
 
 ## STRUCTURE
-
+```text
 │
 ├── data/
 │   └── dataloaders.py      # Dataset loading and preprocessing
@@ -23,7 +23,7 @@ This is a very basic deep learning project to learn CNN and ANN using PyTorch, a
 ├── LICENSE
 ├── README.md
 └── requirements.txt
-
+```
 
 ## Dataset 
 - This project uses Digit-MNIST Dataset.
@@ -42,11 +42,11 @@ This is a very basic deep learning project to learn CNN and ANN using PyTorch, a
 3) Create a new branch
    git checkout -b feature/<branch-name>
 
-    ## Installing the required libraries
-            - You can install the required libraries by the following command
-
-                pip install -r requirements.txt
-
+## Installing the required libraries
+You can install the required libraries by the following command
+```bash
+ pip install -r requirements.txt
+```
 4) Complete your tasks
    You can take help of AI and the provided learning material, but if you just copy paste the code that will not be accepted.
 
