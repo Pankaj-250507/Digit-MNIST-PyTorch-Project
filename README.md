@@ -42,11 +42,11 @@ This is a very basic deep learning project to learn CNN and ANN using PyTorch, a
 3) Create a new branch
    git checkout -b feature/<branch-name>
 
-    ## Installing the required libraries
-            - You can install the required libraries by the following command
-
-                pip install -r requirements.txt
-
+## Installing the required libraries
+You can install the required libraries by the following command
+```bash
+ pip install -r requirements.txt
+```
 4) Complete your tasks
    You can take help of AI and the provided learning material, but if you just copy paste the code that will not be accepted.
 
