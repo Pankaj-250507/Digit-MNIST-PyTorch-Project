@@ -4,7 +4,7 @@
 This is a very basic deep learning project to learn CNN and ANN using PyTorch, as well as to learn git and understand the professional workflow while working on any project.
 
 ## STRUCTURE
-
+```text
 │
 ├── data/
 │   └── dataloaders.py      # Dataset loading and preprocessing
@@ -23,7 +23,7 @@ This is a very basic deep learning project to learn CNN and ANN using PyTorch, a
 ├── LICENSE
 ├── README.md
 └── requirements.txt
-
+```
 
 ## Dataset 
 - This project uses Digit-MNIST Dataset.
