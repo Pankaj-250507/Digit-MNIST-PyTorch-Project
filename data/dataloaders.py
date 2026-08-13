@@ -6,10 +6,10 @@ from torch.utils.data import DataLoader
 from torchvision import transforms
 from torchvision.datasets import MNIST
 
-from ..model.config import config_train
+from model.config import config_train
 
 train_transform = transforms.Compose([
-    transforms.RandAugment(num_ops = 3, magnitude = 10,InterpolationMode = transforms.InterpolationMode.BILINEAR), 
+    transforms.RandAugment(num_ops = 3, magnitude = 8,interpolation = transforms.InterpolationMode.BILINEAR), 
     transforms.ToTensor(),
     transforms.Normalize((0.1307,), (0.3081,))]
     )
@@ -79,4 +79,12 @@ class get_dataloaders:
             prefetch_factor=self.config.prefetch_factor,
             pin_memory=self.config.pin_memory
         )
-    
+
+if __name__ == "__main__":
+    # basic tests
+    config = config_train(batch_size=64)
+    dataloaders = get_dataloaders(config)
+    train_loader = dataloaders.train_loader()
+    test_loader = dataloaders.test_loader()
+    print(f"Number of training batches: {len(train_loader)}")
+    print(f"Number of testing batches: {len(test_loader)}")
