@@ -8,10 +8,17 @@ from torchvision.datasets import MNIST
 
 train_transform = transforms.Compose(
     ''' Apply the transformations on dataset here'''
+    [
+        transforms.ToTensor(),
+        transforms.Normalize((0.5,),(0.5,))
+    ]
 
     )
 
-test_transform = transforms.Compose(
+test_transform = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize((0.5,),(0.5,))
+]
 
 )
 
@@ -31,16 +38,29 @@ test_dataset = MNIST(
 
 class get_dataloaders:
 
-    def __init__(self):
+    def __init__(self,batch_size=64):
         '''
         Initialize the required arguments here
         '''
+        self.batch_size=batch_size
 
     def train_loader(self):
         '''
         Implement the training dataset loader here'''
-
+        return DataLoader(
+            dataset=train_dataset,
+            batch_size=self.batch_size,
+            shuffle=True,
+            pin_memory=True
+        )
     def test_loader(self):
+
+        return DataLoader(
+            dataset=test_dataset,
+            batch_size=self.batch_size,
+            shuffle=False,
+            pin_memory=True
+        )
 
         ...
 
