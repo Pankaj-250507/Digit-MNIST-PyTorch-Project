@@ -7,6 +7,8 @@ from model.config import config_model,config_train
 from data.dataloaders import get_dataloaders
 
 def test_model():
+    device=torch.device("cuda" if torch.cuda.is_available() else "mps" if torch.backends.mps.is_available() else "cpu")
+    print(f"using device: {device}")
 
     model_cfg=config_model()
     train_cfg=config_model()
@@ -14,7 +16,7 @@ def test_model():
     loaders=get_dataloaders(batch_size=train_cfg.batch_size)
     test_loader=loaders.test_loader()
 
-    model=Model(config=model_cfg)
+    model=Model(config=model_cfg).to(device)
     model.load_state_dict(torch.load("mnist_weights.pth"))
 
     model.eval()
@@ -26,6 +28,8 @@ def test_model():
 
     with torch.no_grad():
         for images,labels in test_loader:
+            images=images.to(device)
+            labels=labels.to(device)
             outputs=model(images)
             loss=criterion(outputs,labels)
             total_test_loss+=loss.item()
