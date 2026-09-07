@@ -11,7 +11,7 @@ def test_model():
     print(f"using device: {device}")
 
     model_cfg=config_model()
-    train_cfg=config_model()
+    train_cfg=config_train()
 
     loaders=get_dataloaders(batch_size=train_cfg.batch_size)
     test_loader=loaders.test_loader()

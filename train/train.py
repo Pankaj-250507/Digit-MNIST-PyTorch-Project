@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import tqdm
+from tqdm import tqdm
 from torchinfo import summary
 
 from model.model import Model
@@ -26,7 +26,7 @@ def train_model():
     model=Model(config=model_cfg).to(device)
     criterion=nn.CrossEntropyLoss()
     optimizer=optim.Adam(
-        model.paramters(),
+        model.parameters(),
         lr=train_cfg.learning_rate,
         weight_decay=train_cfg.weight_decay
     )
@@ -46,7 +46,7 @@ def train_model():
             optimizer.step()
 
             total_loss+=loss.item()
-            loss.set_postfix(loss=f"{loss.item():.4f}")
+            #loss.set_postfix(loss=f"{loss.item():.4f}")
 
         avg_loss=total_loss/len(train_loader)
         print(f"Epoch {epoch+1} Finished | Average Loss: {avg_loss:.4f}")

@@ -21,4 +21,4 @@ class config_train:
     # training paramerters 
     learning_rate: float = 0.001
     weight_decay: float = 1e-4
-    epochs=5
+    epochs=10

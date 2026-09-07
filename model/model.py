@@ -21,19 +21,19 @@ class Model(nn.Module):
             in_channels=config.in_channels,
             out_channels=config.conv1_filters,
             kernel_size=config.kernel_size,
-            padding=1
+            padding="same"
         )
 
         self.conv2=nn.Conv2d(
             in_channels=config.conv1_filters,
             out_channels=config.conv2_filters,
             kernel_size=config.kernel_size,
-            padding=1
+            padding="same"
         )
 
         self.pool=nn.MaxPool2d(kernel_size=2,stride=2)
 
-        self.relu-nn.Relu()
+        self.relu=nn.ReLU()
 
         self.flatten=nn.Flatten()
 
